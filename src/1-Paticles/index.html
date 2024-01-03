@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        button {
+            font-size: 2rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 100%;
+            transition: all 0.2s linear;
+            cursor: pointer;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            text-align: center;
+        }
+        #christmas:hover {
+            background-color: rgb(144, 238, 144);
+            scale: 1.2;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script src="../lib/p5.sound.js"></script>
+    <script src="particle.js"></script>
+    <script src="sketch.js"></script>
+
+    <title>FIREWORK!</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAgLfkAMfT/wCdcP8AMT72AEgA5gAC0f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAGAAAAAAAAAAAAAAAAAAAAEAAAAAAAAGABAAAAAAAAAAATAAAAAAAAADMwAAAAAAAAAzMAAAAAAAAAMyIAAAAAAAACJEAAAAAAAAJEIgAAAAAAAEIkQAAAAAAAAkQiAAAAAAAAQiVQAAAAAAACVVAAAAAAAABVX//wAAt/8AAP//AADv/wAAt/8AAPn/AAD4/wAA/H8AAP4fAAD/DwAA/wcAAP+DAAD/wQAA/+AAAP/wAAD/+AAA" rel="icon" type="image/x-icon">
+</head>
+<body>
+    <a href="../Christmas Tree/christmasTree.html">
+        <button id="christmas">🎄</button>
+    </a>
+</body>
+</html>
