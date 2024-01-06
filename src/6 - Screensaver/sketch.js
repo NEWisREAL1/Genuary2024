@@ -41,7 +41,7 @@ function setup() {
     cols = width / w;
     rows = height / h;
 
-    //saveGif('noise_flow.gif', 251, { units: 'frames' });
+    //saveGif('noise_flow.gif', 120, { units: 'frames' });
 }
 
 function draw() {
@@ -71,9 +71,9 @@ function draw() {
     //showTime();
     
     if (zOff >= TWO_PI || zOff <= 0) {
-        zReverse = !zReverse;
+        //zReverse = !zReverse;
     }
-    if (zOff <= 0) alert('LOOP!');
+    //if (zOff <= 0) alert('LOOP!');
     if (zReverse) zOff -= TWO_PI / (80*PI);
     else zOff += TWO_PI / (80*PI);
 }
