@@ -22,6 +22,7 @@ function setup() {
     fireworks.unshift(bigBang);
     
     //frameRate(30);
+    //saveGif('cover1', 5);
 }
 
 let isBigBang = true;

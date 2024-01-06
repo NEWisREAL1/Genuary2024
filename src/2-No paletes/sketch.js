@@ -20,6 +20,7 @@ function setup() {
     background(50);
     //translate(width/2, height/2);
     //image(img, -width/2, -height/2, width, height);
+    //saveGif('cover2', 15);
 }
 
 function draw() {
