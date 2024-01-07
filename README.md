@@ -1,5 +1,7 @@
 # Genuary 2024 Repository
 
+👉🏻 [My Collection](https://newisreal1.github.io/Genuary2024/)
+
 This repository is dedicated to my participation in Genuary 2024, a creative challenge that encourages artists and programmers to create generative art based on daily prompts throughout the month of January. Genuary is a fantastic opportunity to explore the intersection of art and code, pushing the boundaries of creativity and computational thinking.
 
 ## About Genuary
