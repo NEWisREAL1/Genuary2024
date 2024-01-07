@@ -1,4 +1,4 @@
-let w = 20;
+let w = 30;
 let gridW, gridH;
 let rows, cols;
 let zOff = 0;
@@ -40,11 +40,6 @@ function draw() {
     zOff += 0.05;
     yOff -= 0.02;
     //noLoop();
-}
-
-function mouseClicked() {
-    if (w == 30) w = 20;
-    else w = 30;
 }
 
 function windowResized() {
