@@ -47,8 +47,10 @@ function draw() {
     }
 
     a += 0.1;
-    progress += 0.5;
+    progress += 0.25;
+    if (progress >= 100) progress = 0;
     //noLoop();
+
 }
 
 function windowResized() {

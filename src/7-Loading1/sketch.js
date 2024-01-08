@@ -1,7 +1,7 @@
 const G = 10;
 let objects = [];
 let centerObject;
-let mode = 0;
+let mode = 1;
 
 function modeSetup() {
     objects = [];
@@ -27,14 +27,14 @@ function modeSetup() {
 
         let a = 0;
         let r = width / 4;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let m = 1;
             let x = r * cos(a) + width/2;
             let y = r * sin(a) + height/2;
             let vel = createVector(1,0);
             let hue = map(a, 0, TWO_PI, 0, 360);
             objects.push(new RigidBody(x, y, m, vel.setHeading(a + HALF_PI).mult(-1), hue));
-            a += TWO_PI/4;
+            a += TWO_PI/5;
         }
         background(0);
     }
@@ -44,7 +44,10 @@ function setup() {
     createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
 
     modeSetup();
+
     //frameRate(1);
+    //saveGif('genuary2024-7_1.gif', 12);
+    //saveGif('genuary2024-7_1.gif', 5);
 }
 
 function draw() {
@@ -84,6 +87,17 @@ function draw() {
                 pairCheck[j][i] = true;
             }
             obj1.draw();
+        }
+    }
+
+    if (mode == 1) {
+        for (let obj1 of objects) {
+            for (let obj2 of objects) {
+                if (obj1 != obj2) {
+                    stroke((obj1.hue + obj2.hue)/2, 50, 50, 50);
+                    line(obj1.pos.x, obj1.pos.y, obj2.pos.x, obj2.pos.y)
+                }
+            }
         }
     }
 }

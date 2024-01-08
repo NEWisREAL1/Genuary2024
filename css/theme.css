@@ -4,7 +4,8 @@ body {
 
 /* line 2, src/assets/scss/theme.scss */
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  content-visibility: auto; }
 
 /* line 5, src/assets/scss/theme.scss */
 a, .a:hover {
