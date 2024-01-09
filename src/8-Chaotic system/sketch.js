@@ -1,4 +1,4 @@
-const dt = 1/100;
+const dt = 1/99;
 let x = 1; y = 0; z = 0;
 let dx, dy, dz;
 let rho = 1; 
@@ -12,6 +12,8 @@ let scl = 1.05;
 function setup() {
     createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight), WEBGL);
     colorMode(HSL);
+
+    //saveGif('genuary2024-8.gif', 10);
 }
 
 function draw() {
