@@ -40,7 +40,7 @@ function draw() {
                 bChar = 'j';
             }
             text(bChar, x*lw + lw + width/2, lw + y*lw);
-            circle(x*lw + lw + random(-1, 1), y*lw + lw + height/2 + random(-1, 1), 0.6*lw + random(-1, 1));
+            circle(x*lw + lw + random(-2, 5), y*lw + lw + height/2 + random(-2, 5), 0.6*lw + random(-2, 5));
         }
     }
     for (let y = 0; y < vid.height; y++) {
@@ -65,7 +65,7 @@ function mouseClicked() {
     lowVid.loop();
     fullVid.loop();
 
-    //saveGif('genuary2024-10.gif', vid.duration());
+    //saveGif('genuary2024-10.gif', vid.duration(), { units: 'seconds', delay: 1 });
 }
 
 function windowResized() {
