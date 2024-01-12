@@ -50,6 +50,8 @@ function setup() {
     noStroke();
     frameRate(1);
     //saveGif('genuary2024-11.gif', 30, { units: 'frames' });
+
+    alert('TAP or CLICK the screen to generate new pattern.✨');
 }
 
 function draw() {
