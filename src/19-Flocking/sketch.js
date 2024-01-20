@@ -35,7 +35,8 @@ function draw() {
 
         boid.addPath(boid.pos.x, boid.pos.y);
         boid.showPath();
-            
+    });
+    boids.forEach(boid => {
         strokeWeight(2);
         boid.show();
     });
