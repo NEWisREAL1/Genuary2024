@@ -8,6 +8,8 @@ function setup() {
     colorMode(HSL, 360, 100, 100, 100);
     stroke(0, 0, 100);
     strokeWeight(0.5);
+
+    //saveGif('genuary2024-17.gif', 5);
 }
 
 function draw() {
