@@ -42,6 +42,8 @@ function setup() {
 
     perspective(PI/3, width/ height, 0.1, 1000000);
     camera(1500, 1500, 1000);
+
+    saveGif('genuary2024-22.gif', 10);
 }
 
 function draw() {
