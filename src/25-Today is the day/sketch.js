@@ -13,6 +13,7 @@ let colors, colIndex = 0;
 let endX = 1, endY = 1;
 let startX = 0.5, startY = 0;
 let period = 120;
+let fullScreen = true;
 
 class Star {
     constructor(x, y, z) {
@@ -69,7 +70,10 @@ let stars = [];
 
 function setup() {
     cnvSize = min(windowWidth, windowHeight) * 0.95;
-    createCanvas(cnvSize, cnvSize);
+    if (fullScreen)
+        createCanvas(windowWidth, windowHeight);
+    else 
+        createCanvas(cnvSize, cnvSize);
     range = cnvSize / 2;
     // colors = random(pallettes);
     colors = pallettes[colIndex];
@@ -78,7 +82,7 @@ function setup() {
         let x = random(-range, range);
         let y = random(-range, range);
         let z = random(cnvSize);
-        stars.push(new Star(x, y, z));
+        stars[i] = new Star(x, y, z);
     }
 
     noFill();
@@ -101,7 +105,7 @@ function draw() {
         star.draw();
     }
 
-    if (frameCount % period == 0) mouseClicked();;
+    //if (frameCount % period == 0) mouseClicked();;
 }
 
 function mouseClicked() {
@@ -119,7 +123,15 @@ function mouseClicked() {
     }
 }
 
+function doubleClicked() {
+    fullScreen = !fullScreen;
+    setup();
+}
+
 function windowResized() {
-    let cnvSize = min(windowWidth, windowHeight) * 0.95;
-    resizeCanvas(cnvSize, cnvSize);
+    cnvSize = min(windowWidth, windowHeight) * 0.95;
+    if (fullScreen)
+        resizeCanvas(windowWidth, windowHeight);
+    else 
+        resizeCanvas(cnvSize, cnvSize);
 }
