@@ -4,7 +4,8 @@ let col = 7;
 let a = 0;
 
 function setup() {
-    createCanvas(600, 600, WEBGL);
+    let cnvSize = min(windowWidth, windowHeight) * 0.95;
+    createCanvas(cnvSize, cnvSize, WEBGL);
 
     ortho(-width/2, width/2, height/2, -height/2, 0.01, 5000);
     stroke('#371E30');
@@ -95,4 +96,9 @@ function draw() {
     }
 
     a = (a + 1) % (3*col - 3);
+}
+
+function windowResized() {
+    let cnvSize = min(windowWidth, windowHeight) * 0.95;
+    resizeCanvas(cnvSize, cnvSize);
 }
