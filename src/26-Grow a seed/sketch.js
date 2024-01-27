@@ -106,7 +106,7 @@ function setup() {
 }
 
 function draw() {
-    background(115);
+    background(80);
 
     for (let [i, seed] of seeds.entries()) {
         if (seed.state == 'falling') {
@@ -115,7 +115,7 @@ function draw() {
             }; 
             seed.vel = constrain(seed.vel + gravity, 0, 10);
             seed.y += seed.vel;
-            noStroke(); fill('#7A4E21');
+            noStroke(); fill('#fdf5ee');
             circle(seed.root, seed.y, 2*len);
         }
         else if (seed.state == 'growing') {
