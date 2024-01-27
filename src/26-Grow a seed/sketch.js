@@ -5,9 +5,8 @@ class Seed {
         this.y = y;
         this.vel = 0;
         this.gen = 0;
-        this.maxGen = random([4,4,5,5]);
+        this.maxGen = random([4,5]);
         this.history = [this.string];
-        if (random() > 0.99) this.maxGen = 8; // lol
         this.growth = 1;
         this.state = 'falling';
         this.palette = platte;
@@ -16,8 +15,8 @@ class Seed {
         this.lifetime = random(300, 600) // frames
 
         this.angle = random(15,30);
-        this.len = random(3,6);
-        this.growRate = random(0.1,0.3);
+        this.len = random(2.75,5.75);
+        this.growRate = random(0.1,0.2);
     }
 }
 
@@ -45,11 +44,16 @@ const rules = {
 
         { rule: "(F[+X]FX)",      prob: 0.10  },
         { rule: "(F[-X]FX)",      prob: 0.10  },
-        { rule: "(F[++X]FX)",     prob: 0.05  },
-        { rule: "(F[--X]F)X",     prob: 0.05  },
+        { rule: "(F[++X]FX)",     prob: 0.025  },
+        { rule: "(F[--X]F)X",     prob: 0.025  },
 
-        { rule: "(F[++X][-X]FX)", prob: 0.01  },
-        { rule: "(F[+X][--X]FX)", prob: 0.01  },
+        { rule: "(F[-FX-L++L]X)", prob: 0.012  },
+        { rule: "(F[+FX+L--L]X)", prob: 0.012 },
+        { rule: "(F[-FX-A++B]X)", prob: 0.013  },
+        { rule: "(F[+FX+A--B]X)", prob: 0.013 },
+
+        { rule: "(F[+++X][-X]FX)", prob: 0.01  },
+        { rule: "(F[---X][+X]FX)", prob: 0.01  },
 
         { rule: "(F[+X][-X]FL)",  prob: 0.15 },
         { rule: "(F[+X][-X]FA)",  prob: 0.07 },
@@ -70,7 +74,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
     background(50);
-    strokeWeight(1.25);
+    strokeWeight(1.5);
     stroke(255);
 
     drawRules = {
@@ -102,17 +106,16 @@ function setup() {
 }
 
 function draw() {
-    background(80);
+    background(115);
 
     for (let [i, seed] of seeds.entries()) {
         if (seed.state == 'falling') {
             if (seed.y >= height) {
                 seed.state = 'growing';
-                continue;
             }; 
             seed.vel = constrain(seed.vel + gravity, 0, 10);
             seed.y += seed.vel;
-            noStroke(); fill('#C2BDB6');
+            noStroke(); fill('#7A4E21');
             circle(seed.root, seed.y, 2*len);
         }
         else if (seed.state == 'growing') {
@@ -126,12 +129,12 @@ function draw() {
                 seed.gen++;
                 seed.growth = 0;
             }
-        
+            
             push();
             translate(seed.root, height);
             lerpDraw(seed);
             pop();
-
+            
             seed.lifetime--;
             if (seed.lifetime <= 0) seed.state = 'shrinking';
         }
