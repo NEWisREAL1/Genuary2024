@@ -77,7 +77,7 @@ function setup() {
     }
 
     colorMode(HSB, 360, 100, 100, 100);
-    // saveGif('genuary2024-27.gif', 10);
+    // saveGif('genuary2024-27.gif', 6.5);
 }
 
 function draw() {
