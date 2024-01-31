@@ -1,4 +1,4 @@
-let life_shader;
+let mandelbrot;
 
 let centerX, centerY;
 let sideLength;
@@ -9,7 +9,7 @@ let stopTime = 0;
 let animate = false;
 
 function preload() {
-    life_shader = loadShader('shader/life.vert', 'shader/life.frag');
+    mandelbrot = loadShader('shader/mandelbrot.vert', 'shader/mandelbrot.frag');
 }
 
 function setup() {
@@ -17,7 +17,7 @@ function setup() {
     // pixelDensity(1);
     
     // default
-    centerX = -0.1;
+    centerX = -0.7;
     centerY = 0.0;
     sideLength = 2.4;
     aspectRatio = width / height;
@@ -26,19 +26,19 @@ function setup() {
     centerX = -0.74505177387736300;
     centerY = -0.20839486786860498;
 
-    shader(life_shader);
+    shader(mandelbrot);
 
-    saveGif('test.gif', 23);
+    //saveGif('test.gif', 23);
 }
 
 function draw() {
     if (mouseIsPressed) screenDrag();
 
-    life_shader.setUniform('minX', centerX - (sideLength/2) * aspectRatio);
-    life_shader.setUniform('maxX', centerX + (sideLength/2) * aspectRatio);
-    life_shader.setUniform('minY', centerY - (sideLength/2));
-    life_shader.setUniform('maxY', centerY + (sideLength/2));
-    life_shader.setUniform('uTime', millis());
+    mandelbrot.setUniform('minX', centerX - (sideLength/2) * aspectRatio);
+    mandelbrot.setUniform('maxX', centerX + (sideLength/2) * aspectRatio);
+    mandelbrot.setUniform('minY', centerY - (sideLength/2));
+    mandelbrot.setUniform('maxY', centerY + (sideLength/2));
+    mandelbrot.setUniform('uTime', millis());
     
     rect(-width/2, -height/2, width, height);
 
@@ -67,7 +67,6 @@ function draw() {
             stopTime = millis();
         }
     }
-
 }
 
 function screenDrag() {
