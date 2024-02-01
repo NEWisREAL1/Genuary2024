@@ -23,8 +23,8 @@ function setup() {
     aspectRatio = width / height;
     
     // for Gif
-    centerX = -0.74505177387736300;
-    centerY = -0.20839486786860498;
+    // centerX = -0.74505177387736300;
+    // centerY = -0.20839486786860498;
 
     shader(mandelbrot);
 
@@ -43,30 +43,30 @@ function draw() {
     rect(-width/2, -height/2, width, height);
 
     // for Gif
-    if (state == 'still' && millis() - stopTime >= 1000) {
-        if (prevState == 'in') {
-            state = 'out';
-        }
-        else if (prevState == 'out') {
-            state = 'in';
-        }
-    }
-    else if (state == 'in') {
-        sideLength *= 0.98;
-        if (sideLength < 0.000003) {
-            prevState = 'in';
-            state = 'still';
-            stopTime = millis();
-        }
-    }
-    else if (state == 'out') {
-        sideLength *= 1.02;
-        if (sideLength > 2.4) {
-            prevState = 'out';
-            state = 'still';
-            stopTime = millis();
-        }
-    }
+    // if (state == 'still' && millis() - stopTime >= 1000) {
+    //     if (prevState == 'in') {
+    //         state = 'out';
+    //     }
+    //     else if (prevState == 'out') {
+    //         state = 'in';
+    //     }
+    // }
+    // else if (state == 'in') {
+    //     sideLength *= 0.98;
+    //     if (sideLength < 0.000003) {
+    //         prevState = 'in';
+    //         state = 'still';
+    //         stopTime = millis();
+    //     }
+    // }
+    // else if (state == 'out') {
+    //     sideLength *= 1.02;
+    //     if (sideLength > 2.4) {
+    //         prevState = 'out';
+    //         state = 'still';
+    //         stopTime = millis();
+    //     }
+    // }
 }
 
 function screenDrag() {
